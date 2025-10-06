@@ -1,0 +1,306 @@
+<script>
+	import { fade, scale } from 'svelte/transition';
+	import { onMount, onDestroy } from 'svelte';
+	import { browser } from '$app/environment';
+
+	// Example gallery data (each item has multiple images)
+	let albums = [
+		{
+			cover: '/assets/Do you miss me like I miss you.webp',
+			images: [
+				'/assets/Arrival copy.webp',
+				'/assets/Caught.webp',
+				'/assets/Colourful dreams.webp',
+				'/assets//Do you miss me like I miss you.webp',
+				'/assets/ppjpg copy.webp',
+				'/assets/The Lioness Stands Still.webp',
+				'/assets/Fish Boy.webp',
+				'/assets/Kiishi.webp',
+				'/assets/KUWE.webp',
+				'/assets/Misunderstanding.webp',
+				'/assets/Nameless beauty.webp',
+				'/assets/She who speaks with fire.webp',
+				'/assets/Pothead Attention copy.webp',
+				'/assets/Tara 3.webp',
+				'/assets/Waiting Glitch.webp'
+			]
+		},
+		{
+			cover: '/assets/wande/Image 1.webp',
+			images: [
+				'/assets/wande/Image 1.webp',
+				'/assets/wande/Image 2.webp',
+				'/assets/wande/Image 4.webp',
+				'/assets/wande/Image 5.webp',
+				'/assets/wande/Image 6.webp',
+				'/assets/wande/Image 7.webp',
+				'/assets/wande/Image 8.webp',
+				'/assets/wande/Image 9.webp',
+				'/assets/wande/Image 10.webp',
+				'/assets/wande/Image 12.webp',
+				'/assets/wande/Image 13.webp',
+				'/assets/wande/Image 14.webp',
+				'/assets/wande/Image 15.webp',
+				'/assets/wande/Image 16.webp'
+			]
+		},
+		{
+			cover: '/assets/lisa/Image 1.webp',
+			images: [
+				'/assets/lisa/Image 1.webp',
+				'/assets/lisa/Image 2.webp',
+				'/assets/lisa/Image 3.webp',
+				'/assets/lisa/Image 4.webp',
+				'/assets/lisa/Image 5.webp',
+				'/assets/lisa/Image 6.webp',
+				'/assets/lisa/Image 7.webp',
+				'/assets/lisa/Image 8.webp',
+				'/assets/lisa/Image 9.webp',
+				'/assets/lisa/Image 10.webp',
+				'/assets/lisa/Image 11.webp',
+				'/assets/lisa/Image 12.webp',
+				'/assets/lisa/Image 13.webp',
+				'/assets/lisa/Image 14.webp',
+				'/assets/lisa/Image 15.webp',
+				'/assets/lisa/Image 16.webp',
+				'/assets/lisa/Image 17.webp',
+				'/assets/lisa/Image 18.webp',
+				'/assets/lisa/Image 19.webp',
+				'/assets/lisa/Image 20.webp',
+				'/assets/lisa/Image 21.webp',
+				'/assets/lisa/Image 22.webp',
+				'/assets/lisa/Image 23.webp',
+				'/assets/lisa/Image 24.webp'
+			]
+		},
+		{
+			cover: '/assets/remy/Image 2.webp',
+			images: [
+				'/assets/remy/Image 1 .webp',
+				'/assets/remy/Image 2.webp',
+				'/assets/remy/Image 3.webp',
+				'/assets/remy/Image 4.webp',
+				'/assets/remy/Image 5.webp',
+				'/assets/remy/Image 6.webp',
+				'/assets/remy/Image 7.webp',
+				'/assets/remy/Image 8.webp',
+				'/assets/remy/Image 9.webp',
+				'/assets/remy/Image 10.webp',
+				'/assets/remy/Image 11.webp',
+				'/assets/remy/Image 12.webp',
+				'/assets/remy/Image 13.webp',
+				'/assets/remy/Image 14.webp',
+				'/assets/remy/Image 15.webp',
+				'/assets/remy/Image 16.webp',
+				'/assets/remy/Image 17.webp',
+				'/assets/remy/Image 18.webp',
+				'/assets/remy/Image 19.webp',
+				'/assets/remy/Image 20.webp',
+				'/assets/remy/Image 21.webp',
+				'/assets/remy/Image 22.webp',
+				'/assets/remy/Image 23.webp',
+				'/assets/remy/Image 24.webp',
+				'/assets/remy/Image 25.webp',
+				'/assets/remy/Image 26.webp',
+				'/assets/remy/Image 27.webp',
+				'/assets/remy/Image 28.webp',
+				'/assets/remy/Image 30.webp',
+				'/assets/remy/Image 31.webp',
+				'/assets/remy/Image 32.webp',
+				'/assets/remy/Image 33.webp',
+				'/assets/remy/Image 34.webp',
+				'/assets/remy/Image 35.webp',
+				'/assets/remy/Image 36.webp',
+				'/assets/remy/Image 37.webp',
+				'/assets/remy/Image 38.webp',
+				'/assets/remy/Image 39.webp',
+				'/assets/remy/Image 40.webp',
+				'/assets/remy/Image 41.webp',
+				'/assets/remy/Image 42.webp',
+				'/assets/remy/Image 43.webp',
+				'/assets/remy/Image 44.webp',
+				'/assets/remy/Image 45.webp',
+				'/assets/remy/Image 46.webp',
+				'/assets/remy/Image 47.webp',
+				'/assets/remy/Image 48.webp',
+				'/assets/remy/Image 49.webp',
+				'/assets/remy/Image 50.webp'
+			]
+		},
+		{
+			cover: '/assets/gold skin/Bride.webp',
+			images: [
+				'/assets/gold skin/Bride.webp',
+				'/assets/gold skin/DanteyX.webp',
+				'/assets/gold skin/GSSantosen.webp',
+				'/assets/gold skin/Image 2 copy 3.webp',
+				'/assets/gold skin/Image 4.webp',
+				'/assets/gold skin/Image 6.webp',
+				'/assets/gold skin/Seleri 1.webp',
+				'/assets/gold skin/Sun God copy.webp',
+				'/assets/gold skin/Sun God 2 copy.webp'
+			]
+		},
+		{
+			cover: '/assets/midnight/Compromise.webp',
+			images: [
+				'/assets/midnight/Compromise.webp',
+				'/assets/midnight/Flame.webp',
+				'/assets/midnight/Reddish.webp',
+				'/assets/midnight/ppjpg copy.webp',
+				'/assets/midnight/Hammerhead Entity.webp',
+				'/assets/midnight/Mary Magdalene .webp',
+				'/assets/midnight/The demon of cynicism.webp',
+				'/assets/midnight/The demon of disillusionment.webp',
+				'/assets/midnight/The demon of judgmentalism copy.webp',
+				'/assets/midnight/The demon of shortsightedness.webp',
+				'/assets/midnight/The demon of judgmentalism.webp'
+			]
+		},
+		{
+			cover: '/assets/FredXEzer/BDpaint.webp',
+			images: [
+				'/assets/FredXEzer/BDpaint 2.webp',
+				'/assets/FredXEzer/BDpaint 4.webp',
+				'/assets/FredXEzer/BDpaint 5.webp',
+				'/assets/FredXEzer/BDpaint.webp',
+				'/assets/FredXEzer/No Trading.webp'
+			]
+		},
+		{
+			cover: '/assets/vibrant-colors/Afro futurism.webp',
+			images: [
+				'/assets/vibrant-colors/Afro futurism.webp',
+				'/assets/vibrant-colors/Agbero.webp',
+				'/assets/vibrant-colors/Blindfolded.webp',
+				'/assets/vibrant-colors/Female energy.webp',
+				'/assets/vibrant-colors/Gold eyes.webp',
+				'/assets/vibrant-colors/Green eye god.webp',
+				'/assets/vibrant-colors/Kaliat_s cross 7.webp',
+				'/assets/vibrant-colors/Rock bottom.webp',
+				'/assets/vibrant-colors/Sunset.webp',
+				'/assets/vibrant-colors/Concentrated.webp'
+			]
+		}
+	];
+
+	let currentAlbum = null;
+	let currentIndex = 0;
+
+	function openLightbox(albumIndex) {
+		currentAlbum = albums[albumIndex];
+		currentIndex = 0;
+	}
+
+	function closeLightbox() {
+		currentAlbum = null;
+		currentIndex = 0;
+	}
+
+	function prevImage() {
+		if (currentAlbum) {
+			currentIndex = (currentIndex - 1 + currentAlbum.images.length) % currentAlbum.images.length;
+		}
+	}
+
+	function nextImage() {
+		if (currentAlbum) {
+			currentIndex = (currentIndex + 1) % currentAlbum.images.length;
+		}
+	}
+
+	// Keyboard navigation
+	function handleKey(e) {
+		if (currentAlbum) {
+			if (e.key === 'ArrowLeft') prevImage();
+			if (e.key === 'ArrowRight') nextImage();
+			if (e.key === 'Escape') closeLightbox();
+		}
+	}
+
+	if (browser) {
+		onMount(() => {
+			window.addEventListener('keydown', handleKey);
+		});
+
+		onDestroy(() => {
+			window.removeEventListener('keydown', handleKey);
+		});
+	}
+</script>
+
+<main class="flex min-h-screen flex-col gap-y-10 px-5 py-20 lg:px-20">
+	<h1 class="mx-auto text-[35px] font-normal capitalize lg:text-[54px]">My Collections</h1>
+	<!-- Album Grid -->
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+		{#each albums as album, i}
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
+			<div class="group relative cursor-pointer" on:click={() => openLightbox(i)}>
+				<div class="h-[600px] overflow-hidden object-cover md:h-[500px] 2xl:h-[600px]">
+					<img
+						src={album.cover}
+						alt="album cover"
+						class="h-full w-full object-cover object-center"
+					/>
+				</div>
+				<!-- Hover overlay -->
+				<div
+					class="absolute inset-0 flex items-center justify-center
+               rounded-xl bg-blue-500/50 opacity-0 transition duration-500 group-hover:opacity-100"
+				>
+					<span class="text-5xl font-bold text-white">+</span>
+				</div>
+			</div>
+		{/each}
+	</div>
+
+	<!-- Lightbox -->
+	{#if currentAlbum}
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div
+			class="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+			transition:fade
+			on:click={closeLightbox}
+		>
+			<div
+				class="relative flex h-full w-full items-center justify-center px-6"
+				on:click|stopPropagation
+			>
+				<!-- Prev Button -->
+				<button
+					class="absolute left-6 text-[80px] font-light text-black transition duration-500 hover:text-[#306b86] md:text-[#fff]"
+					on:click={prevImage}
+				>
+					‹
+				</button>
+
+				<!-- Current Image -->
+				<div class="">
+					<img
+						src={currentAlbum.images[currentIndex]}
+						alt="large view"
+						class="mx-auto max-h-[90vh] w-full max-w-4xl shadow-xl"
+						transition:scale={{ duration: 900 }}
+					/>
+				</div>
+				<!-- Next Button -->
+				<button
+					class="absolute right-6 text-[80px] font-light text-black transition duration-500 hover:text-[#306b86] md:text-white"
+					on:click={nextImage}
+				>
+					›
+				</button>
+
+				<!-- Close Button -->
+				<button
+					class="absolute top-6 right-6 text-2xl font-normal text-white transition duration-500 hover:text-[#306b86]"
+					on:click={closeLightbox}
+				>
+					✕
+				</button>
+			</div>
+		</div>
+	{/if}
+</main>

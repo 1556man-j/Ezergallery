@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+body{
+  background-color: #0c0c0c;
+  color: white;
+  margin-inline: auto;
+  max-width: 2000px;
+}
+/* Default body font */
+body, h3, h4, p {
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+/* Headings */
+h1, h2 {
+  font-family: 'Quattrocento', serif;
+}
+button{
+  cursor: pointer;
+  padding: 12px;
+}
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}

@@ -1,0 +1,131 @@
+<script>
+	import Logo from '$lib/assets/logo.png';
+	import { page } from '$app/stores';
+	import MobileNav from './MobileNav.svelte';
+	let isWorkOpen = false;
+	import { isSearchOpen } from "$lib/stores/searchStore";
+	 import { isCartOpen, cartCount } from '$lib/stores/cartStore';
+
+</script>
+
+<nav class="flex items-center justify-between bg-[#0d0d0d] px-5 lg:px-20 py-4 text-white shadow-md">
+	<!-- Logo -->
+	<div class=" font-bold">
+		<a href="/"><img alt="logo" src={Logo} class="md:w-32 w-16" /></a>
+	</div>
+
+	<!-- Nav Links -->
+	<ul class="hidden items-center space-x-16 xl:flex">
+		<li>
+			<a
+				href="/"
+				class="relative p-2 text-[14px]
+		       {$page.url.pathname === '/' ? 'text-[#306b86] after:w-full' : 'text-gray-300'}
+		       after:absolute after:bottom-0 after:left-0 after:h-[2px]
+		       after:w-0 after:bg-[#306b86] after:transition-all
+		       after:duration-300 after:content-[''] hover:text-[#306b86] hover:after:w-full"
+			>
+				HOME
+			</a>
+		</li>
+
+		<!-- WORK with Dropdown -->
+		<li>
+			<a
+				href="/work"
+				class="relative p-2 text-[14px]
+		       {$page.url.pathname === '/work' ? 'text-[#306b86] after:w-full' : 'text-gray-300'}
+		       after:absolute after:bottom-0 after:left-0 after:h-[2px]
+		       after:w-0 after:bg-[#306b86] after:transition-all
+		       after:duration-300 after:content-[''] hover:text-[#306b86] hover:after:w-full uppercase"
+			>
+				Work
+			</a>
+		</li>
+
+		<li>
+			<a
+				href="/store"
+				class="relative p-2 text-[14px]
+        {$page.url.pathname === '/store' ? 'text-[#306b86] after:w-full' : 'text-gray-300'}
+        after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#306b86] after:transition-all after:duration-300 after:content-[''] hover:text-[#306b86] hover:after:w-full"
+				>BUY PRINTS</a
+			>
+		</li>
+		<li>
+			<a
+				href="/about"
+				class="relative p-2 text-[14px]
+		       {$page.url.pathname === '/about' ? 'text-[#306b86] after:w-full' : 'text-gray-300'}
+		       after:absolute after:bottom-0 after:left-0 after:h-[2px]
+		       after:w-0 after:bg-[#306b86] after:transition-all
+		       after:duration-300 after:content-[''] hover:text-[#306b86] hover:after:w-full"
+			>
+				ABOUT
+			</a>
+		</li>
+		<li>
+			<a
+				href="/contact"
+				class="relative p-2 text-[14px]
+        {$page.url.pathname === '/contact' ? 'text-[#306b86] after:w-full' : 'text-gray-300'}
+        after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#306b86] after:transition-all after:duration-300 after:content-[''] hover:text-[#306b86] hover:after:w-full"
+				>BOOK A PHOTOSHOOT</a
+			>
+		</li>
+		
+	</ul>
+
+	<!-- Icons -->
+	<div class="flex items-center -space-x-1 md:space-x-2">
+		<!-- Search Icon -->
+		<button aria-label="Search"  on:click={() => isSearchOpen.set(true)} class="hidden  md:block">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-5 w-5 hover:text-[#306b86]"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"
+				/>
+			</svg>
+		</button>
+<!-- Cart Icon with Counter -->
+<button
+  aria-label="Cart"
+  class="relative hover:text-[#306b86] transition duration-100"
+  on:click={() => isCartOpen.set(true)}
+
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-6 md:w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13h10M10 21a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"
+    />
+  </svg>
+
+  {#if $cartCount > 0}
+    <span
+      class="absolute top-0 right-1 flex h-5 w-5 items-center justify-center
+      rounded-full bg-[#306b86] text-xs font-bold text-white"
+    >
+      {$cartCount}
+    </span>
+  {/if}
+</button>
+		<MobileNav />
+	</div>
+</nav>
