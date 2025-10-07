@@ -77,7 +77,7 @@
 		<h2 class="text-[45px] capitalize">Services</h2>
 		<div class="justify-betweeen flex flex-col gap-10 md:grid md:grid-cols-2 lg:grid-cols-3">
 			<div class="overflow-hidden text-center">
-				<a href="/work" class=" block w-full overflow-hidden">
+				<a href="/work/Portrait-Photography" class=" block w-full overflow-hidden">
 					<div class="h-[500px] overflow-hidden lg:h-[400px] 2xl:h-[600px]">
 						<img
 							alt="portrait"
@@ -95,7 +95,7 @@
 				</a>
 			</div>
 			<div class="text-center">
-				<a href="/work" class=" block">
+				<a href="/work/Art-Photography" class=" block">
 					<div class="h-[500px] overflow-hidden lg:h-[400px] 2xl:h-[600px]">
 						<img
 							alt="Blood lust"
@@ -113,7 +113,7 @@
 				</a>
 			</div>
 			<div class="text-center">
-				<a href="/work" class="block overflow-hidden">
+				<a href="/work/Brand-Collaboration" class="block overflow-hidden">
 					<div class="h-[500px] overflow-hidden lg:h-[400px] 2xl:h-[600px]">
 						<img
 							alt="brand"
