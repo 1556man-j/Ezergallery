@@ -19,7 +19,7 @@
 					<h2 class="text-3xl font-normal transition group-hover:text-[#306b86]">
 						{product.title}
 					</h2>
-					<p class="text-gray-600 text-[16px]">₦{product.price}</p>
+					<p class="text-gray-600 text-[16px]">₦{product.price.toLocaleString()}.00</p>
 				</div>
 			</a>
 		{/each}

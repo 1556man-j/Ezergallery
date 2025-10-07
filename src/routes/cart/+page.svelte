@@ -72,11 +72,11 @@
 
 							<!-- Product Name -->
 
-							<p class="text-sm text-gray-500 hidden md:block">₦{item.price}.00 each</p>
+							<p class="text-sm text-gray-500 hidden md:block">₦{Number(item.price).toLocaleString()}.00 each</p>
 
 							<!-- Total & Remove -->
 							<div class="col-span-1 flex items-center justify-between">
-								<p class="font-semibold">₦{item.price * item.qty}.00</p>
+								<p class="font-semibold">₦{(item.price * item.qty).toLocaleString()}.00</p>
 							</div>
 						</div>
 					{/each}
@@ -92,7 +92,7 @@
 
 			<div class="mt-5 flex justify-between text-lg font-medium">
 				<span class="text-[18px] font-bold uppercase">Subtotal</span>
-				<span>₦{$subtotal}.00</span>
+				<span>₦{($subtotal).toLocaleString()}.00</span>
 			</div>
 			<p class="text-sm text-gray-500">Shipping, taxes, and discounts calculated at checkout.</p>
 

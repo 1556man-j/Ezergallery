@@ -41,7 +41,7 @@
 			</p>
 			<p class="text-[20px] leading-7">
 				Photography, at its core, is about relationships  between the artist and the subject,
-				between the story and the viewer. That same belief shapes the way I approach every message Igi
+				between the story and the viewer. That same belief shapes the way I approach every message I
 				receive. When you reach out, know that your words are read with care and intention. I value
 				your time, your curiosity, and your trust.
 			</p>

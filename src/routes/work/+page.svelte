@@ -2,6 +2,10 @@
 	import { fade, scale } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
+	import Portrait from '$lib/assets/portrait.webp';
+	import Bloodlust from '$lib/assets/Blood lust.webp';
+	import Brand from '$lib/assets/brand.webp';
+	import Sunset from '$lib/assets/Sunset.webp';
 
 	// Example gallery data (each item has multiple images)
 	let albums = [
@@ -132,7 +136,7 @@
 			images: [
 				'/assets/gold skin/Bride.webp',
 				'/assets/gold skin/DanteyX.webp',
-				'/assets/gold skin/GSSantosen.webp',
+				'/assets/gold skin/GSSantos1.webp',
 				'/assets/gold skin/Image 2 copy 3.webp',
 				'/assets/gold skin/Image 4.webp',
 				'/assets/gold skin/Image 6.webp',
@@ -229,7 +233,58 @@
 	}
 </script>
 
-<main class="flex min-h-screen flex-col gap-y-10 px-5 py-20 lg:px-20">
+<!--=============== hero =================-->
+
+<!-- <section class="max-w-[1200px] mx-auto grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-20 gap-y-10 px-5 pb-20 lg:px-20">
+	<div class="max-h-[500px] w-full overflow-hidden">
+		<img src={Sunset} alt="Last Chapter" class="h-full w-full object-contain" />
+	</div>
+	<div>
+		<h2
+			class="pb-5 text-[30px] font-semibold tracking-tight text-[#b8d6ee] lg:text-[45px] lg:tracking-wide"
+		>
+			The Art of Seeing Beyond the Surface
+		</h2>
+		<p class="pb-5 text-[20px] lg:pb-10">
+			Every image begins with a feeling. My work is not just about what the eye can see but what the
+			heart remembers. At EZERGALLERY, each photograph is born from curiosity, emotion, and truth,
+			capturing the quiet in-between moments that often go unnoticed. This collection is an
+			invitation to pause, to feel, and to see beauty where life meets imperfection. Whether it’s a
+			fleeting glance, a shadow, or a story told through light, every frame here is part of a larger
+			conversation about what it means to be human.
+		</p>
+	</div>
+</section> -->
+<section
+	class="relative z-10  flex h-[750px] flex-col items-center justify-center gap-10 bg-[url('/src/lib/assets/Sunset.webp')] bg-cover bg-center bg-no-repeat text-center "
+>
+	<!-- Overlay -->
+	<div class="absolute inset-0 bg-black/70"></div>
+	<!-- Content -->
+	<div class="relative z-10 max-w-3xl px-6">
+		<h1 class="mb-6 text-5xl leading-tight font-light md:text-6xl">
+			The Art of Seeing Beyond the Surface
+		</h1>
+		<p class="mb-8 text-lg text-gray-300 md:text-xl">
+			Every image begins with a feeling. My work is not just about what the eye can see but what the
+			heart remembers. At EZERGALLERY, each photograph is born from curiosity, emotion, and truth,
+			capturing the quiet in-between moments that often go unnoticed. This collection is an
+			invitation to pause, to feel, and to see beauty where life meets imperfection. Whether it’s a
+			fleeting glance, a shadow, or a story told through light, every frame here is part of a larger
+			conversation about what it means to be human.
+		</p>
+		<a
+			href="#collections"
+			class="inline-block rounded-xl bg-[#306b86] px-8 py-4 text-lg font-medium text-white
+			 transition-transform duration-300 hover:scale-105 hover:bg-[#b8d6ee] hover:text-black"
+		>
+			Explore Our Collections
+		</a>
+	</div>
+</section>
+
+<!--===================== my collections ====================-->
+<section id="collections" class="flex min-h-screen flex-col gap-y-10 px-5 py-20 lg:px-20">
 	<h1 class="mx-auto text-[35px] font-normal capitalize lg:text-[54px]">My Collections</h1>
 	<!-- Album Grid -->
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -303,4 +358,99 @@
 			</div>
 		</div>
 	{/if}
-</main>
+</section>
+<!--======================== service section =====================-->
+<section class="flex flex-col justify-center gap-10 gap-y-10 px-5 py-20 pb-40 text-center lg:px-20">
+	<h2 class="text-[45px] capitalize">Services</h2>
+	<div class="justify-betweeen flex flex-col gap-10 md:grid md:grid-cols-2 lg:grid-cols-3">
+		<div class="overflow-hidden text-center">
+			<a href="/work" class=" block w-full overflow-hidden">
+				<div class="h-[500px] overflow-hidden lg:h-[400px] 2xl:h-[600px]">
+					<img
+						alt="portrait"
+						src={Portrait}
+						class="h-full w-full transform object-cover transition duration-500 ease-in-out hover:scale-[1.01] hover:brightness-55"
+					/>
+				</div>
+				<h2 class="mt-5 text-[30px] font-[400] uppercase md:text-[25px] xl:text-[30px]">
+					Portrait photography
+				</h2>
+				<p class="text-[18px] font-[400]">
+					Raw and expressive portraits that highlight individuality, identity, and presence. Every
+					shot is personal, honest, and deeply human.
+				</p>
+			</a>
+		</div>
+		<div class="text-center">
+			<a href="/work" class=" block">
+				<div class="h-[500px] overflow-hidden lg:h-[400px] 2xl:h-[600px]">
+					<img
+						alt="Blood lust"
+						src={Bloodlust}
+						class="h-full w-full transform object-cover transition duration-500 ease-in-out hover:scale-[1.01] hover:brightness-55"
+					/>
+				</div>
+				<h2 class="mt-5 text-[30px] font-[400] uppercase md:text-[25px] xl:text-[30px]">
+					Art photography
+				</h2>
+				<p class="text-[18px] font-[400]">
+					Conceptual and intentional imagery designed to evoke thought and emotion. Each piece tells
+					a story that goes beyond aesthetics, it captures feeling, memory, and truth.
+				</p>
+			</a>
+		</div>
+		<div class="text-center">
+			<a href="/work" class="block overflow-hidden">
+				<div class="h-[500px] overflow-hidden lg:h-[400px] 2xl:h-[600px]">
+					<img
+						alt="brand"
+						src={Brand}
+						class="h-full w-full transform object-cover transition duration-500 ease-in-out hover:scale-[1.01] hover:brightness-55"
+					/>
+				</div>
+				<h2 class="mt-5 text-[30px] font-[400] uppercase md:text-[25px] xl:text-[30px]">
+					Brand collaborattion
+				</h2>
+				<p class="text-[18px] font-[400]">
+					Visual storytelling for brands experience with Lisa Folawiyo, Invougue, BRITA, Wanda Esan
+					and iStan Label.
+				</p>
+			</a>
+		</div>
+		<!-- <div class="text-center">
+			<a href="/work" class="block overflow-hidden">
+				<div class="h-[500px] overflow-hidden lg:h-[400px] 2xl:h-[600px]">
+					<img
+						alt="Wande Portrait"
+						src={Wande}
+						class="h-full w-full transform object-cover transition duration-500 ease-in-out hover:scale-[1.01] hover:brightness-55"
+					/>
+				</div>
+				<h2 class="mt-5 text-[30px] font-[400] uppercase md:text-[25px] xl:text-[30px]">
+					Exhibitions & Prints
+				</h2>
+				<p class="font-[400] text-[1p8x]">
+					Developing curated works for shows, installations, and private collections.
+				</p>
+			</a>
+		</div>
+		<div class="text-center">
+			<a href="/work" class="block overflow-hidden">
+				<div class="h-[500px] overflow-hidden lg:h-[400px] 2xl:h-[600px]">
+					<img
+						alt="Train brand"
+						src={Train}
+						class="h-full w-full transform object-cover transition duration-500 ease-in-out hover:scale-[1.01] hover:brightness-55"
+					/>
+				</div>
+				<h2 class="mt-5 text-[30px] font-[400] uppercase md:text-[25px] xl:text-[30px]">
+					Workshops / Collaborations
+				</h2>
+				<p class="text-[18px] font-[400]">
+					Community projects and creative partnerships with other artists, designed to share
+					knowledge, inspire, and build connection.
+				</p>
+			</a>
+		</div> -->
+	</div>
+</section>

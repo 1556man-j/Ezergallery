@@ -73,7 +73,7 @@
 						</div>
 
 						<div class="flex h-28 flex-1 flex-col items-end justify-between py-2 text-right">
-							<p class="font-semibold">₦{item.price * item.qty}.00</p>
+							<p class="font-semibold">₦{(item.price * item.qty).toLocaleString()}.00</p>
 							<!-- Remove -->
 							<!-- svelte-ignore a11y_consider_explicit_label -->
 							<button
@@ -108,7 +108,7 @@
 			<div class="space-y-3 p-4 text-black">
 				<div class="flex justify-between font-semibold">
 					<span class="text-[16px] font-semibold uppercase">Subtotal</span>
-					<span class="text-[18px] font-semibold">₦{$subtotal}.00</span>
+					<span class="text-[18px] font-semibold">₦{($subtotal).toLocaleString()}.00</span>
 				</div>
 				<p class="-mt-5 text-[14px]">Shipping, taxes, and discounts calculated at checkout</p>
 				<div class="flex gap-3">

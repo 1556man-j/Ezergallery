@@ -11,6 +11,7 @@
 </script>
 
 <main class="flex flex-col gap-y-48 px-5 py-20 lg:px-20">
+	<!--====================== hero ======================-->
 	<section
 		class="relative z-10 -mx-5 -mt-20 flex h-[850px] flex-col items-center justify-center gap-10 bg-[url('/src/lib/assets/Realization.webp')] bg-cover bg-center bg-no-repeat text-center lg:-mx-20"
 	>
@@ -34,6 +35,7 @@
 			</a>
 		</div>
 	</section>
+	<!--================ about ====================-->
 	<section class="flex flex-col gap-10 text-center">
 		<h2 class="text-[45px] capitalize">About EZERGALLERY</h2>
 		<div class="flex flex-col items-center text-center lg:flex-row">
@@ -70,6 +72,7 @@
 			</div>
 		</div>
 	</section>
+	<!--======================== service section =====================-->
 	<section class="text-center flex flex-col justify-center gap-10">
 		<h2 class="text-[45px] capitalize">Services</h2>
 		<div class="justify-betweeen flex flex-col gap-10 md:grid md:grid-cols-2 lg:grid-cols-3">
@@ -171,7 +174,7 @@
 			>
 		</button>
 	</section>
-
+<!--=========== Shop Prints ==================================-->
 	<section class="flex flex-col gap-10 pb-20 text-center">
 		<h2 class="text-[45px] capitalize">Shop prints</h2>
 		<section class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -187,7 +190,7 @@
 						<h2 class="text-3xl font-normal transition group-hover:text-[#306b86]">
 							{product.title}
 						</h2>
-						<p class="text-[16px] text-gray-600">₦{product.price}</p>
+						<p class="text-[16px] text-gray-600">₦{product.price.toLocaleString()}.00</p>
 					</div>
 				</a>
 			{/each}

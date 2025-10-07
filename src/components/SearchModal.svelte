@@ -64,7 +64,7 @@
 							on:click={() => isSearchOpen.set(false)}
 						>
 							<p class="font-semibold text-black">{product.title}</p>
-							<p class="text-sm text-gray-600">₦{product.price}</p>
+							<p class="text-sm text-gray-600">₦{Number(product.price).toLocaleString()}.00</p>
 						</a>
 					{/each}
 				{/if}

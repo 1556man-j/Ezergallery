@@ -8,7 +8,7 @@
 		$items.reduce((sum, item) => sum + item.price * item.qty, 0)
 	);
 
-	const shippingFee = 20;
+	const shippingFee = 2000;
 
 	let Fname = '';
 	let Lname = '';
@@ -250,19 +250,19 @@ showModal= true;
 							<p class="text-sm text-gray-500">Qty: {item.qty}</p>
 						</div>
 					</div>
-					<p class="font-medium">₦{item.price * item.qty}.00</p>
+					<p class="font-medium">₦{(item.price * item.qty).toLocaleString()}.00</p>
 				</div>
 			{/each}
 
 			<!-- Shipping -->
 			<div class="text-md flex justify-between font-medium">
 				<span>Shipping Fee:</span>
-				<span>₦{shippingFee}.00</span>
+				<span>₦{shippingFee.toLocaleString()}.00</span>
 			</div>
 
 			<div class="mt-4 flex justify-between text-lg font-semibold">
 				<span>Total:</span>
-				<span>₦{$subtotal + shippingFee}.00</span>
+				<span>₦{($subtotal + shippingFee).toLocaleString()}.00</span>
 			</div>
 		{:else}
 			<p class="text-gray-500">Your cart is empty</p>

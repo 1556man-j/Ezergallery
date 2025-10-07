@@ -73,7 +73,7 @@
 		<!-- Product Details -->
 		<div>
 			<h1 class="mb-2 text-[30px] lg:text-5xl font-normal">{product.title}</h1>
-			<h2 class="mb-4 text-[23px] lg:text-3xl font-normal">₦{product.price}.00</h2>
+			<h2 class="mb-4 text-[23px] lg:text-3xl font-normal">₦{product.price.toLocaleString()}.00</h2>
 
 			<div class="my-5 h-[1px] w-full bg-[#306b86]"></div>
 

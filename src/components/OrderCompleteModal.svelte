@@ -64,8 +64,8 @@
           <div>
             <h3 class="font-semibold text-lg mb-2">Order Details</h3>
             <p><strong>Order ID:</strong> {orderDetails.orderId}</p>
-            <p><strong>Total:</strong> ₦{orderDetails.total}</p>
-            <p><strong>Shipping Fee:</strong> ₦{orderDetails.shippingFee}</p>
+            <p><strong>Total:</strong> ₦{Number(orderDetails.total).toLocaleString()}.00</p>
+            <p><strong>Shipping Fee:</strong> ₦{orderDetails.shippingFee.toLocaleString()}.00</p>
           </div>
 
           <!-- Customer Details -->

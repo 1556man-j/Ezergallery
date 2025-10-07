@@ -2,6 +2,9 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+html{
+  scroll-behavior: smooth;
+}
 body{
   background-color: #0c0c0c;
   color: white;
