@@ -93,16 +93,19 @@
 			<ul class="mt-1 space-y-1 border-l border-gray-700 pl-6">
 				<li>
 					<a href="/work/Art-Photography" class="block py-1 text-gray-400 hover:text-[#306b86]"
+					on:click={() => (isOpen = false)}
 						>Art Photography</a
 					>
 				</li>
 				<li>
 					<a href="/work/Portrait-Photography" class="block py-1 text-gray-400 hover:text-[#306b86]"
+					on:click={() => (isOpen = false)}
 						>Portrait Photography</a
 					>
 				</li>
 				<li>
 					<a href="/work/Brand-Collaboration" class="block py-1 text-gray-400 hover:text-[#306b86]"
+					on:click={() => (isOpen = false)}
 						>Brand Collaboration</a
 					>
 				</li>
